@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 int max(int a, int b)
 {
@@ -20,6 +21,7 @@ int knapsack_dp(int W, int p[], int v[], int n)
 {
     int K[n + 1][W + 1];
 
+    //complexidade O(n*w)
     for (int i = 0; i <= n; i++)
     {
         for (int w = 0; w <= W; w++)
@@ -190,9 +192,16 @@ int main()
     printf("\nCapacidade da mochila: ");
     scanf("%d", &W);
 
+    clock_t start = clock();
+    int r = knapsack_dp(W, pesos, valores, n);
+    clock_t end = clock();
+
+    double time_taken = (double)(end-start)/CLOCKS_PER_SEC; //o tempo que levou para a execução de knapsack_dp
+
     printf("----------------------------\n");
-    printf("Maior valor possível: %d\n", knapsack_dp(W, pesos, valores, n));
+    printf("Maior valor possível: %d\n", r);
     printf("----------------------------\n");
 
+    printf("Tempo de execução: %lf", time_taken);
     return 0;
 }
