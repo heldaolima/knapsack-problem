@@ -32,7 +32,7 @@ int knapsack_dp(int W, int p[], int v[], int n)
                 K[i][w] =  K[i - 1][w];
         }
     }
-    print_matriz(W, n, K);
+    // print_matriz(W, n, K); só pra ver o que acontece
     return K[n][W];
 
     
