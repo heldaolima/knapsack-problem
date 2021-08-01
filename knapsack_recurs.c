@@ -88,7 +88,6 @@ rec (5, 3):
 
 int main()
 {
-
     printf("---<Knapsack Problem>---\n");
     
     int n;
